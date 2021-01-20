@@ -1,0 +1,45 @@
+Path:
+    -> two or more components can have same path
+    -> put exact for exact url : else uske baad jo bhi aata hai render hoga  
+            extractedPath.contains(path)
+        => it will render if extracted path contains (path) i.e if path is /page 
+            url = localhost:3000/page so extracted path will be /page 
+            components that will run as / /page but not /page/5 as it is not contained by extracted path  
+            !exact keyword aaivai add karoge toh it is exact = {true}!
+
+Router:
+    Three types of routers (for deployment)
+    1. BrowserRouter (abc.com/path) // bad for deploy as it sends index.html instead of 404...
+    2. HashRouter (abc.com/#/path) // set up backend to not look at anything after hash. so your application will always send index.html for any route and react baaki ka dekh lega
+    // normal wala bc error dedega server ya 404 so use hash router...
+    3. MemorRouter (abc.com) // no change in path  
+
+    i. In traditional server if not found URL it responds with 404
+
+Key Interpolation:
+    used when you need to make a string as key 
+[js]
+    const newState = {...state};
+    newState[action.payload.id] = action.payload;
+    return newState; 
+    // or
+    return {... state, [action.payload.id]: action.payload}
+[js]
+
+Intentional Navigation vs Programmatic Navigation:
+    => Intentional nav when user clicks on a link
+    => Programmatic nav when we run code to forcebly navigate through our app(eg we submit a form and go to new page)
+Navigation using Router not BrowserRouter:
+    => BrowserRouter has its own history object which is sent as props to components
+    => So to do the same with action creator we have to send that prop to action creator
+    => Better solution would be to use own history using normal routing that can be used in files other than components
+  
+React Fragments:
+    => Invisible element
+    => Can also be <> </>
+
+Note:
+    => You can put multiple params on a single URL to load same page
+
+    
+    
